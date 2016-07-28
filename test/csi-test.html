@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>CSI Test</title>
+<META NAME="Generator" CONTENT="TextPad 4.6">
+<META NAME="Author" CONTENT="?">
+<META NAME="Keywords" CONTENT="?">
+<META NAME="Description" CONTENT="?">
+<style>
+body {
+	font-family: Arial;
+}
+</style>
+<body>
+	<h2>CSI Test</h2>
+	<table style="width:600px;">
+	<tr>
+		<td style="width:30%">Include 1<br/>- Within DIV</td>
+		<td>
+			<div id="include1" style="border:1px solid blue;width:300px;padding:4px;" data-include-within="true" data-include="test-include1.html">Loading...</div>
+		</td>
+	</tr>
+	<tr>
+		<td>Include 2<br/>- Replace DIV</td>
+		<td>
+			<div id="include2" style="border:1px solid green;width:300px;padding:4px;" data-include="test-include2.html">Loading...</div>
+		</td>
+	</tr>
+	<tr>
+		<td>Include 3<br/>- Within DIV</td>
+		<td>
+			<div id="include3" style="border:1px solid red;width:300px;padding:4px;" data-include-within="true" data-include="test-include3.html">Loading...</div>
+		</td>
+	</tr>
+	</table>
+
+	<br/>
+	<b>Log</b>
+	<div id="log" style="font-family:Courier;font-size:9pt;border:1px solid purple;width:500px;height:175px;overflow:auto"></div>
+
+	<script src="../src/csi.js"></script>
+	<script type="text/javascript">
+
+		var iLogLine = 1;
+		function writeLog(s) {
+			var oLog = document.getElementById("log");
+			oLog.innerHTML += iLogLine + ": " + s + "<br/>";
+			++iLogLine;
+		}
+
+		window.onload = function(){
+			csi.loadAllIncludes(
+				function(){writeLog("onload: csi.loadAllIncludes() finished")},
+				writeLog
+			);
+		};
+
+	</script>
+</body>
+</html>
