@@ -6,7 +6,13 @@ client side includes via javascript
 usage
 ======
 
-Simply include `csi.min.js` in your `<head>` and add a `data-include` attribute on any valid HTML element. csi.js will fetch the value of that attribute, and **replace** the element with the fetched document.
+Simply include `csi.min.js` in your `<head>` and add a `data-include` attribute on any valid HTML element. csi.js will fetch the value of that attribute, and **replace** the element with the fetched document. 
+
+You can also include it via CDN like this:
+
+```html
+<script src="https://cdn.jsdelivr.net/gh/LexmarkWeb/csi.js@0.1.0/csi.min.js"></script>
+```
 
 If, `include-me.html` looked like this:
 
