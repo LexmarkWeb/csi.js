@@ -1,6 +1,6 @@
 {
   "name": "csi.js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-minified": "0.0.6",
