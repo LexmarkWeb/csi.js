@@ -10,13 +10,13 @@ Simply include `csi.min.js` in your `<head>` and add a `data-include` attribute 
 
 If, `include-me.html` looked like this:
 
-```
+```html
 <h1>Hello, world!</h1>
 ```
 
 Then, a document like this:
 
-```
+```html
 <body>
 <div data-include="include-me.html"></div>
 </body>
@@ -24,9 +24,31 @@ Then, a document like this:
 
 would end up rendering like this:
 
-```
+```html
 <body>
 <h1>Hello, world!</h1>
+</body>
+```
+
+There is also optional `data-include-callback` attribute:
+
+```html
+<body>
+<div data-include="include-me.html" data-include-callback="someFunc"></div>
+
+<div data-include="include-me.html" data-include-callback="NestedObj.someFunc"></div>
+
+<script>
+function someFunc(parentElement, xmlhttp) {
+  console.log('Content Loaded:' + parentElement.querySelector('h1').innerText);
+}
+
+NestedObj = {
+  someFunc: function (parentElement, xmlhttp) {
+    console.log('Content Loaded:' + parentElement.querySelector('h1').innerText);
+  }
+}
+</script>
 </body>
 ```
 
